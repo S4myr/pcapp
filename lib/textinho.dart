@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class textinho extends StatefulWidget {
@@ -46,7 +47,26 @@ class _textinhoState extends State<textinho> {
           Text(
             texto,
             style: TextStyle(fontSize: 36),
-          )
+          ),
+          SizedBox(
+            width: 250.0,
+            child: DefaultTextStyle(
+              style: const TextStyle(
+                fontSize: 32.0,
+                fontWeight: FontWeight.bold,
+              ),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  FadeAnimatedText('do IT!'),
+                  FadeAnimatedText('do it RIGHT!!'),
+                  FadeAnimatedText('do it RIGHT NOW!!!'),
+                ],
+                onTap: () {
+                  print("Tap Event");
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
