@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'textinho.dart';
+import 'package:projeto_flutter/cadastro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      home: const textinho(),
+      home: const cadastro(),
     );
   }
 }

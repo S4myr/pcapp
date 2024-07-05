@@ -33,7 +33,8 @@ class _textinhoState extends State<textinho> {
         },
         child: Icon(Icons.rocket),
       ),
-      body: Column(
+      body:
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
