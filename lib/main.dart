@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutter/cadastro.dart';
+import 'package:projeto_flutter/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.red,
           iconTheme: IconThemeData(
-            color: Colors.white,
+            color: Colors.brown,
           ),
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      home: const cadastro(),
+      home: const login(),
     );
   }
 }

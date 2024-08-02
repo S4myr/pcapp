@@ -1,107 +1,143 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_flutter/cadastro.dart';
 
 class login extends StatelessWidget {
-  const login({super.key});
-
+  const login({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(27),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.indigo,
-              Colors.pink,
-            ],
+        body: Stack(
+      children: [
+        Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xffB81736),
+              Color(0xff281537),
+            ]),
+          ),
+          child: const Padding(
+            padding: EdgeInsets.only(top: 60.0, left: 22),
+            child: Text(
+              'Olá\nFaça o Login!',
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 30),
-            const Text(
-              "Digite os dados de acesso nos campos abaixo.",
-              style: TextStyle(
-                color: Colors.white,
+        Padding(
+          padding: const EdgeInsets.only(top: 200.0),
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+              color: Colors.white,
+            ),
+            height: double.infinity,
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 18.0, right: 18),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Email',
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Insira seu email';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Senha',
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Insira sua senha';
+                            }
+                            return null;
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+// Validate will return true if the form is valid, or false if
+// the form is invalid.
+                              if (_formKey.currentState!.validate()) {
+// Process data.
+                              }
+                            },
+                            child: const Text(
+                              'Logar',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      'Esqueci minha senha.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                        color: Color(0xff281537),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 150,
+                  ),
+                  const Align(
+                    alignment: Alignment.bottomRight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Não tem uma conta?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.grey),
+                        ),
+                        Text(
+                          "Cadastro",
+                          style: TextStyle(
+
+                              ///done login page
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
-            const SizedBox(height: 30),
-            const CupertinoTextField(
-              cursorColor: Colors.pinkAccent,
-              padding: EdgeInsets.all(15),
-              placeholder: "Digite o seu e-mail",
-              placeholderStyle: TextStyle(color: Colors.white70, fontSize: 14),
-              style: TextStyle(color: Colors.white, fontSize: 14),
-              decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  )),
-            ),
-            const SizedBox(height: 5),
-            const CupertinoTextField(
-              padding: EdgeInsets.all(15),
-              cursorColor: Colors.pinkAccent,
-              placeholder: "Digite sua senha",
-              obscureText: true,
-              placeholderStyle: TextStyle(color: Colors.white70, fontSize: 14),
-              style: TextStyle(color: Colors.white, fontSize: 14),
-              decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  )),
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              width: double.infinity,
-              child: CupertinoButton(
-                padding: const EdgeInsets.all(17),
-                color: Colors.pink[50],
-                child: const Text(
-                  "Acessar",
-                  style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
-                ),
-                onPressed: () {},
-              ),
-            ),
-            const SizedBox(height: 7),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white70, width: 0.8),
-                  borderRadius: BorderRadius.circular(7)),
-              child: CupertinoButton(
-                child: const Text(
-                  "Crie sua conta",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => cadastro()),
-                  );
-                },
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
