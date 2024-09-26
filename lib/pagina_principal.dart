@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pagina_secundaria.dart';
+import 'package:projeto_flutter/filis_inicio.dart';
 
 class Pagina_principal extends StatelessWidget {
   const Pagina_principal({super.key});
@@ -8,10 +8,12 @@ class Pagina_principal extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text('Página Principal',
+        title: const Text(
+          'Página Principal',
           style: TextStyle(
             color: Colors.white,
-          ),),
+          ),
+        ),
       ),
       body: Center(
         child: ElevatedButton(
@@ -19,7 +21,7 @@ class Pagina_principal extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Pagina_secundaria()),
+              MaterialPageRoute(builder: (context) => filis_inicio()),
             );
           },
         ),
